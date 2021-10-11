@@ -21,7 +21,12 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
-import { HomeComponent } from './home/home.component';
+import {HomeComponent} from './home/home.component';
+import firebase from "firebase/compat";
+import { UserComponent } from './model/user/user.component';
+import { CreateUserComponent } from './user/create-user/create-user.component';
+import { EditUserComponent } from './user/edit-user/edit-user.component';
+import Firestore = firebase.firestore.Firestore;
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -38,7 +43,10 @@ export const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     LogoutComponent,
-    HomeComponent
+    HomeComponent,
+    UserComponent,
+    CreateUserComponent,
+    EditUserComponent
   ],
   imports: [
     HttpClientModule,
@@ -59,6 +67,7 @@ export const appRoutes: Routes = [
     MatInputModule,
     MatFormFieldModule,
     // FooterModule,
+    Firestore
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

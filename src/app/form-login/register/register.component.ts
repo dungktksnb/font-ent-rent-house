@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import {SignUp} from "../../model/sign-up";
 import {AuthService} from "../../service/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -23,7 +24,8 @@ export class RegisterComponent implements OnInit {
     message: "yes"
   }
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -40,18 +42,12 @@ export class RegisterComponent implements OnInit {
       this.form.name,
       this.form.username,
       this.form.email,
-      this.form.password
+      this.form.password,
     )
     this.authService.signUp(this.signUpForm).subscribe(data => {
-      if (JSON.stringify(data) == JSON.stringify(this.error1)) {
-        this.status = 'The username is existed! Please try again!'
-      }
-      if (JSON.stringify(data) == JSON.stringify(this.error2)) {
-        this.status = 'The Email is existed! Please try again!'
-      }
-      if (JSON.stringify(data) == JSON.stringify(this.success)) {
-        this.status = 'Create Success!'
-      }
+      this.router.navigate(['/login']);
+      this.form.reset();
     })
+
   }
 }

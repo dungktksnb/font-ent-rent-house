@@ -12,10 +12,10 @@ import {SignIn} from "../model/sign-in";
 export class AuthService {
   // API_LOCAL
   // private API_SIGNUP = environment.API_LOCAL+'signup';
-  private API_SIGNIN = environment.API_LOCAL + 'users/signin';
+  private API_SIGNIN = environment.API_LOCAL + 'login';
 
   //API_SERVER
-  private API_SIGNUP = environment.API_LOCAL + 'users/signup';
+  private API_SIGNUP = environment.API_LOCAL + 'signup';
 
   constructor(private http: HttpClient) {
   }
