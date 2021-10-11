@@ -1,0 +1,4 @@
+.contact-info p input {
+  background-image: linear-gradient(red, orange);
+  border-radius: 10px;
+}

@@ -4,14 +4,14 @@
 
 export const environment = {
   production: false,
-  firebaseConfig : {
-    apiKey: "AIzaSyAHfrw5MQyrSQaJ4vDB0DE-5aQvOFwztIk",
-    authDomain: "thaonoucamp9.firebaseapp.com",
-    projectId: "thaonoucamp9",
-    storageBucket: "thaonoucamp9.appspot.com",
-    messagingSenderId: "900577665746",
-    appId: "1:900577665746:web:4c5ddb3d456d2d0457830b",
-    measurementId: "G-XGXKXBY5RM"
+  firebaseConfig: {
+    apiKey: "AIzaSyAld82wNGTrH487YHBKljF5mEcejQ0jw7U",
+    authDomain: "uploadfile-codegym-project.firebaseapp.com",
+    projectId: "uploadfile-codegym-project",
+    storageBucket: "uploadfile-codegym-project.appspot.com",
+    messagingSenderId: "318423668181",
+    appId: "1: 318423668181: web: 6a735a283fbf9d43ba195c",
+    measurementId: "G-R9CGJE21M2"
   }
 };
 
