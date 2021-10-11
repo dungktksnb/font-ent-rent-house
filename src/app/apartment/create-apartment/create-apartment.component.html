@@ -1,0 +1,6 @@
+<input type="file" #uploadFile multiple="multiple">
+<button (click)="uploadFileImg()">UpFile</button>
+<div *ngFor="let img of arrayPicture">
+  <img [src]="img" height="300" width="300">
+</div>
+
