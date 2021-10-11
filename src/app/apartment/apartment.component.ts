@@ -37,7 +37,9 @@ export class ApartmentComponent implements OnInit {
 
   ApartmentShow() {
     this.http.get<Apartment[]>('http://localhost:8080/apartment').subscribe((res: any) => {
+
         this.apartments = res;
+        console.log(this.apartments );
       }
     )
   }

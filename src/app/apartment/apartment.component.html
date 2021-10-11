@@ -88,7 +88,7 @@
       <div  class="col-12 col-md-6 col-lg-4 px-25" *ngFor="let a of apartments">
         <div class="course-content">
           <figure class="course-thumbnail">
-            <a href="#"><img src="images/1.jpg"></a>
+            <a [routerLink]="['details', a.id]"><img style="height:300px," src= "{{a.images[0].nameUrl}}"></a>
           </figure><!-- .course-thumbnail -->
 
           <div class="course-content-wrap">
