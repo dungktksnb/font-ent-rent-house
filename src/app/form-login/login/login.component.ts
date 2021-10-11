@@ -25,11 +25,12 @@ export class LoginComponent implements OnInit {
   ngSubmit() {
     this.signInForm = new SignIn(this.form.username, this.form.password);
     this.authService.signIn(this.signInForm).subscribe(data => {
+      console.log(data);
       if (data.token != undefined) {
         this.tokenService.setToken(data.token);
-        this.tokenService.setToken(data.username);
-        this.tokenService.setToken(data.password);
+        this.tokenService.setName(data.username);
         this.tokenService.setRoles(data.roles);
+        console.log(this.tokenService.getToken())
         this.router.navigate(['/']).then(() => {
           window.location.reload();
         })

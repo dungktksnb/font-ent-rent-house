@@ -34,8 +34,8 @@
                   <a *ngIf="!isLogin" routerLink="login">
                     <span>Login</span>
                   </a>
-                  <a *ngIf="isLogin" routerLink="logout">
-                    <span>{{name}}</span>
+                  <a *ngIf="isLogin" (click)="logout()">
+                    <span>{{name}} | Logout</span>
                   </a>
                 </li>
               </ul>

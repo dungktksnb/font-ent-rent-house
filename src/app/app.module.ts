@@ -23,8 +23,6 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
 import {HomeComponent} from './home/home.component';
 import firebase from "firebase/compat";
-import { UserComponent } from './model/user/user.component';
-import { CreateUserComponent } from './user/create-user/create-user.component';
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import Firestore = firebase.firestore.Firestore;
 
@@ -44,8 +42,6 @@ export const appRoutes: Routes = [
     RegisterComponent,
     LogoutComponent,
     HomeComponent,
-    UserComponent,
-    CreateUserComponent,
     EditUserComponent
   ],
   imports: [
@@ -67,7 +63,6 @@ export const appRoutes: Routes = [
     MatInputModule,
     MatFormFieldModule,
     // FooterModule,
-    Firestore
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

@@ -12,10 +12,4 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onSubmitLogout(): void {
-    localStorage.removeItem('access_token');
-    alert('Logout Successfully!');
-    this.router.navigateByUrl('/');
-  }
 }
