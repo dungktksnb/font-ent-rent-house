@@ -3,6 +3,7 @@ import {Apartment} from "../../model/apartment";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
+import {ApartmentService} from "../../apartmentService/apartment.service";
 
 @Component({
   selector: 'app-apartment-details',
@@ -10,11 +11,10 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./apartment-details.component.css']
 })
 export class ApartmentDetailsComponent implements OnInit {
-  formGroup!: FormGroup;
   details!: Apartment;
   id!: number;
 
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute) {
+  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private apartmentService: ApartmentService) {
 
   }
 
@@ -23,26 +23,10 @@ export class ApartmentDetailsComponent implements OnInit {
       this.id = res.id;
     });
     this.ApartmentDetails(this.id);
-    this.formGroup= new FormGroup({
-      images: new  FormControl(),
-      address: new FormControl(),
-      bathroom: new FormControl(),
-      bedroom: new FormControl(),
-      city: new FormControl(),
-      description: new FormControl(),
-      district: new FormControl(),
-      name: new FormControl(),
-      numberView: new FormControl(),
-      price: new FormControl(),
-      ward: new FormControl(),
-      typeApartmentId: new FormControl(),
-      usersId: new FormControl(),
-    })
   }
 
   ApartmentDetails(id: number) {
-    this.http.get<Apartment>(`http://localhost:8080/apartment/${id}`).subscribe((data) => {
-      console.log(data)
+    this.apartmentService.findApartmentById(id).subscribe((data) => {
       this.details = data;
     })
   }

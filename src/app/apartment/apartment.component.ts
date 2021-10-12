@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Apartment} from "../model/apartment";
 import {FormControl, FormGroup} from "@angular/forms";
+import {ApartmentService} from "../apartmentService/apartment.service";
 
 @Component({
   selector: 'app-apartment',
@@ -13,11 +14,13 @@ export class ApartmentComponent implements OnInit {
   apartments: Apartment[] = [];
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private apartmentService: ApartmentService) {
   }
 
   ngOnInit(): void {
-    this.ApartmentShow();
+    this.apartmentService.getApartment().subscribe((data) => {
+      this.apartments = data;
+    })
     this.formGroup = new FormGroup({
       images: new FormControl(),
       address: new FormControl(),
@@ -35,13 +38,13 @@ export class ApartmentComponent implements OnInit {
     })
   }
 
-  ApartmentShow() {
-    this.http.get<Apartment[]>('http://localhost:8080/apartment').subscribe((res: any) => {
-
-        this.apartments = res;
-        console.log(this.apartments );
-      }
-    )
-  }
+  // ApartmentShow() {
+  //   this.http.get<Apartment[]>('http://localhost:8080/apartment').subscribe((res: any) => {
+  //
+  //       this.apartments = res;
+  //       console.log(this.apartments);
+  //     }
+  //   )
+  // }
 
 }

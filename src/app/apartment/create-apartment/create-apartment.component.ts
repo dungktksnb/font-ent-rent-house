@@ -5,6 +5,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Apartment} from "../../model/apartment";
+import {ApartmentService} from "../../apartmentService/apartment.service";
 
 
 @Component({
@@ -19,7 +20,8 @@ export class CreateApartmentComponent implements OnInit {
   selectedImg: any = [];
   arrayPicture: String[] = [];
 
-  constructor(private storage: AngularFireStorage, private http: HttpClient, private router: Router) {
+  constructor(private storage: AngularFireStorage, private http: HttpClient, private router: Router, private apartmentService: ApartmentService) {
+
   }
 
   ngOnInit(): void {
@@ -42,7 +44,7 @@ export class CreateApartmentComponent implements OnInit {
   }
 
   createApartment() {
-    this.http.post<Apartment>('http://localhost:8080/apartment', this.formGroup.value).subscribe((data) => {
+    this.apartmentService.createApartment(this.formGroup.value).subscribe((data) => {
       this.router.navigate(['']);
     })
   }
