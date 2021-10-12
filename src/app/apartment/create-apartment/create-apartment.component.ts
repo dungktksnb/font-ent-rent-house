@@ -24,7 +24,7 @@ export class CreateApartmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
-      images: new FormControl(),
+      images: new FormControl(this.uploadFileImg()),
       address: new FormControl(),
       bathroom: new FormControl(),
       bedroom: new FormControl(),
@@ -34,8 +34,10 @@ export class CreateApartmentComponent implements OnInit {
       name: new FormControl(),
       numberView: new FormControl(),
       price: new FormControl(),
-      status: new FormControl(),
+      status: new FormControl(true),
       ward: new FormControl(),
+      typeApartmentId: new FormControl(),
+      usersId: new FormControl()           // hỏi toàn
     })
   }
 

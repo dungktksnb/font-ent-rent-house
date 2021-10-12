@@ -5,7 +5,7 @@ import { ApartmentRoutingModule } from './apartment-routing.module';
 import { CreateApartmentComponent } from './create-apartment/create-apartment.component';
 import {ApartmentComponent} from "./apartment.component";
 import { ApartmentDetailsComponent } from './apartment-details/apartment-details.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     CommonModule,
     ApartmentRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ApartmentModule { }

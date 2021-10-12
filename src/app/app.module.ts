@@ -25,6 +25,7 @@ import {HomeComponent} from './home/home.component';
 import firebase from "firebase/compat";
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import Firestore = firebase.firestore.Firestore;
+import {ApartmentModule} from "./apartment/apartment.module";
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -37,7 +38,7 @@ export const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ApartmentComponent,
+    // ApartmentComponent,
     LoginComponent,
     RegisterComponent,
     LogoutComponent,
@@ -62,6 +63,7 @@ export const appRoutes: Routes = [
     // NgxAudioPlayerModule,
     MatInputModule,
     MatFormFieldModule,
+    ApartmentModule,
     // FooterModule,
   ],
   providers: [httpInterceptorProviders],

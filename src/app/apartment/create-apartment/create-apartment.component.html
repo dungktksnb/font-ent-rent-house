@@ -1,36 +1,57 @@
-<input type="file" #uploadFile multiple="multiple">
-<button (click)="uploadFileImg()">UpFile</button>
-<div *ngFor="let img of arrayPicture">
-  <img [src]="img" height="300" width="300">
-</div>
-
-<!--<div class="container">-->
-<!--  <div class="row justify-content-between">-->
-<!--    <div class="col-12">-->
-<!--      <div class="contact-info">-->
-<!--        <h3>Thông tin căn nhà</h3>-->
-<!--        <div class="row">-->
-<!--          <div class="col-6">-->
-<!--            <ul class="p-0 m-0">-->
-<!--              <li><span>Tên căn hộ:</span></li>-->
-<!--              <li><span>Kiểu căn hộ:</span></li>-->
-<!--              <li><span>Địa chỉ:</span><a href="#"></a></li>-->
-<!--              <li><span>Ảnh: <a href="#"></a></span></li>-->
-<!--            </ul>-->
-<!--          </div>-->
-<!--          <div class="col-6">-->
-<!--            <ul class="p-0 m-0">-->
-<!--              <li><span>Phòng ngủ:</span></li>-->
-<!--              <li><span>Phòng tắm:</span><a href="#"></a></li>-->
-<!--              <li><span>Giá tiền (vnđ/ngày):</span><a href="#"></a></li>-->
-<!--              <li><span>Mô tả:</span><a href="#"></a></li>-->
-<!--            </ul>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <p><input type="submit" href="#" value="Đặt nhà"></p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
+<!--<input type="file" #uploadFile multiple="multiple">-->
+<!--<button (click)="uploadFileImg()">UpFile</button>-->
+<!--<div *ngFor="let img of arrayPicture">-->
+<!--  <img [src]="img" height="100" width="100">-->
 <!--</div>-->
+
+<div class="container">
+  <form [formGroup]="formGroup">
+    <div class="row justify-content-between">
+      <div class="col-12">
+        <div class="contact-info">
+          <h3>Thông tin căn nhà</h3>
+          <div class="row">
+            <div class="col-6">
+              <ul class="p-0 m-0">
+                <li><span>Tên căn hộ:</span><input type="text" class="form-control" formControlName="name"></li>
+                <li><span>Phân loại căn hộ:</span>
+                  <select formControlName="typeApartmentId">
+                  <option value="1">Thường</option> hỏi toàn value
+                  <option value="2">VIP</option>
+                  <option value="3">Luxury</option>
+                </select></li>
+                <li><span>View căn hộ:</span><input type="text" class="form-control" formControlName="numberView" placeholder="Số lượng mặt tiền"></li>
+                <li><span>Thêm ảnh:</span><input type="file" #uploadFile multiple="multiple" formControlName="images"></li>
+                <li>
+                  <div *ngFor="let img of arrayPicture">
+                    <img [src]="img" height="50" width="50">
+                  </div>
+                </li>
+                <li><span>Số phòng ngủ:</span><input type="text" class="form-control" formControlName="bedroom"></li>
+                <li><span>Số phòng tắm:</span><input type="text" class="form-control" formControlName="bathroom"></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="p-0 m-0">
+                <li><span>Địa chỉ:</span><input type="text" class="form-control" formControlName="address"></li>
+                <li><span>Phường/xã:</span><input type="text" class="form-control" formControlName="ward"></li>
+                <li><span>Quận/huyện:</span><input type="text" class="form-control" formControlName="district"></li>
+                <li><span>Tỉnh/thành phố:</span><input type="text" class="form-control" formControlName="city"></li>
+                <li><span>Giá tiền (vnđ/ngày):</span><input type="text" class="form-control" formControlName="price"></li>
+                <li><span>Mô tả:</span><textarea class="form-control" formControlName="description" rows="4"></textarea></li>
+                <li><span>Trạng thái căn hộ:</span>
+                  <select formControlName="status">
+                  <option [ngValue]="true">Còn nhà</option>
+                  <option [ngValue]="false">hết nhà</option>
+                </select></li>
+              </ul>
+            </div>
+          </div>
+          <p><input type="submit" href="#" value="Đăng nhà"></p>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
 
 
