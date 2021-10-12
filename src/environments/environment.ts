@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  apiUrl: 'http://localhost:8080',
   firebaseConfig: {
     apiKey: "AIzaSyAld82wNGTrH487YHBKljF5mEcejQ0jw7U",
     authDomain: "uploadfile-codegym-project.firebaseapp.com",

@@ -24,6 +24,10 @@ import {MatButtonModule} from "@angular/material/button";
 import {HomeComponent} from './home/home.component';
 import firebase from "firebase/compat";
 import { EditUserComponent } from './user/edit-user/edit-user.component';
+import { ShowComponent } from './comment/show/show.component';
+import { CreateComponent } from './comment/create/create.component';
+import { EditComponent } from './comment/edit/edit.component';
+import { DeleteComponent } from './comment/delete/delete.component';
 import Firestore = firebase.firestore.Firestore;
 
 export const appRoutes: Routes = [
@@ -42,7 +46,11 @@ export const appRoutes: Routes = [
     RegisterComponent,
     LogoutComponent,
     HomeComponent,
-    EditUserComponent
+    EditUserComponent,
+    ShowComponent,
+    CreateComponent,
+    EditComponent,
+    DeleteComponent
   ],
   imports: [
     HttpClientModule,
