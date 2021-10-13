@@ -25,6 +25,10 @@ import {HomeComponent} from './home/home.component';
 import firebase from "firebase/compat";
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import Firestore = firebase.firestore.Firestore;
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {environment} from "../environments/environment";
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -63,7 +67,9 @@ export const appRoutes: Routes = [
     MatInputModule,
     MatFormFieldModule,
     // FooterModule,
-    Firestore
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
