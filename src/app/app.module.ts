@@ -31,6 +31,7 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
+import { BillComponent } from './bill/bill.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {environment} from "../environments/environment";
     RegisterComponent,
     LogoutComponent,
     HomeComponent,
-    EditUserComponent
+    EditUserComponent,
+    BillComponent
   ],
   imports: [
     HttpClientModule,
