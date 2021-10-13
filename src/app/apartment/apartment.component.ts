@@ -11,7 +11,7 @@ import {ApartmentService} from "../apartmentService/apartment.service";
 })
 export class ApartmentComponent implements OnInit {
   formGroup!: FormGroup;
-  apartments: Apartment[] = [];
+  apartments!: Apartment[];
 
 
   constructor(private http: HttpClient, private apartmentService: ApartmentService) {
@@ -19,7 +19,9 @@ export class ApartmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.apartmentService.getApartment().subscribe((data) => {
+      console.log(data)
       this.apartments = data;
+      console.log(this.apartments)
     })
     this.formGroup = new FormGroup({
       images: new FormControl(),

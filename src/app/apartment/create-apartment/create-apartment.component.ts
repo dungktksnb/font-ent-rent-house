@@ -39,12 +39,40 @@ export class CreateApartmentComponent implements OnInit {
       status: new FormControl(true),
       ward: new FormControl(),
       typeApartmentId: new FormControl(),
-      usersId: new FormControl()           // hỏi toàn
+      // usersId: new FormControl()           // hỏi toàn
     })
   }
-
   createApartment() {
-    this.apartmentService.createApartment(this.formGroup.value).subscribe((data) => {
+    let images = [];
+    for (const image of this.arrayPicture) {
+      images.push({nameUrl:image});
+    }
+    this.arrayPicture.splice(0,1);
+    let apartment = {
+      images:images,
+      name:  this.formGroup.get('name')?.value,
+      address: this.formGroup.get('address')?.value,
+      ward: this.formGroup.get('ward')?.value,
+      district: this.formGroup.get('district')?.value,
+      city: this.formGroup.get('city')?.value,
+      bathroom: this.formGroup.get('bathroom')?.value,
+      bedroom: this.formGroup.get('bedroom')?.value,
+      description: this.formGroup.get('description')?.value,
+      price: this.formGroup.get('price')?.value,
+      status: this.formGroup.get('status')?.value,
+      numberView: this.formGroup.get('numberView')?.value,
+      users: {
+        id: 1,
+      },
+      typeApartment: {
+        id: 1
+      }
+    }
+
+    console.log("apartment")
+    console.log(apartment)
+    console.log(this.formGroup.value);
+    this.apartmentService.createApartment(apartment).subscribe((data) => {
       this.router.navigate(['']);
     })
   }

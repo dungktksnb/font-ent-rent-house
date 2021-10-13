@@ -1,4 +1,3 @@
-/*.course-thumbnail a img{*/
-/*  height: 100px;*/
-/*  width: 350px;*/
-/*}*/
+.course-thumbnail a img{
+  height: 200px;
+}

@@ -16,15 +16,17 @@
                 <li><span>Tên căn hộ:</span><input type="text" class="form-control" formControlName="name"></li>
                 <li><span>Phân loại căn hộ:</span>
                   <select formControlName="typeApartmentId">
-                  <option value="1">Thường</option> hỏi toàn value
-                  <option value="2">VIP</option>
-                  <option value="3">Luxury</option>
-                </select></li>
-                <li><span>View căn hộ:</span><input type="text" class="form-control" formControlName="numberView" placeholder="Số lượng mặt tiền"></li>
-                <li><span>Thêm ảnh:</span><input type="file" #uploadFile multiple="multiple" formControlName="images"></li>
+                    <option value="1">Thường</option>
+                    <option value="2">VIP</option>
+                    <option value="3">Luxury</option>
+                  </select></li>
+                <li><span>View căn hộ:</span><input type="text" class="form-control" formControlName="numberView"
+                                                    placeholder="Số lượng mặt tiền"></li>
+                <li><span>Thêm ảnh:</span><input type="file" #uploadFile multiple="multiple" (change)="uploadFileImg()">
+                </li>
                 <li>
                   <div *ngFor="let img of arrayPicture">
-                    <img [src]="img" height="50" width="50">
+                    <img [src]="img" height="100" width="100" >
                   </div>
                 </li>
                 <li><span>Số phòng ngủ:</span><input type="text" class="form-control" formControlName="bedroom"></li>
@@ -37,17 +39,26 @@
                 <li><span>Phường/xã:</span><input type="text" class="form-control" formControlName="ward"></li>
                 <li><span>Quận/huyện:</span><input type="text" class="form-control" formControlName="district"></li>
                 <li><span>Tỉnh/thành phố:</span><input type="text" class="form-control" formControlName="city"></li>
-                <li><span>Giá tiền (vnđ/ngày):</span><input type="text" class="form-control" formControlName="price"></li>
-                <li><span>Mô tả:</span><textarea class="form-control" formControlName="description" rows="4"></textarea></li>
+                <li><span>Giá tiền (vnđ/ngày):</span><input type="text" class="form-control" formControlName="price">
+                </li>
+                <li><span>Mô tả:</span><textarea class="form-control" formControlName="description" rows="4"></textarea>
+                </li>
                 <li><span>Trạng thái căn hộ:</span>
                   <select formControlName="status">
-                  <option [ngValue]="true">Còn nhà</option>
-                  <option [ngValue]="false">hết nhà</option>
-                </select></li>
+                    <option [ngValue]="true">Còn nhà</option>
+                    <option [ngValue]="false">hết nhà</option>
+                  </select></li>
               </ul>
             </div>
           </div>
-          <p><input type="submit" (click)="createApartment()" value="Đăng nhà"></p>
+          <div class="row">
+          <div class="col-2">
+            <p><input type="submit" (click)="createApartment()" value="Đăng nhà"></p>
+          </div>
+          <div class="col-2">
+            <p><input type="submit" (click)="createApartment()" value="Quay lại"></p>
+          </div>
+          </div>
         </div>
       </div>
     </div>

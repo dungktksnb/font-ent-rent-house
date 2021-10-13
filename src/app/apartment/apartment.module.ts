@@ -17,7 +17,9 @@ import {EditApartmentComponent} from "./edit-apartment/edit-apartment.component"
     EditApartmentComponent,
   ],
   exports: [
-    ApartmentComponent
+    ApartmentComponent,
+    ApartmentDetailsComponent,
+    CreateApartmentComponent,
   ],
   imports: [
     CommonModule,

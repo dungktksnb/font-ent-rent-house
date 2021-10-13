@@ -21,7 +21,7 @@ export class ApartmentService {
     return  this.http.get<Apartment>(`http://localhost:8080/apartment/${id}`)
   }
 
-  createApartment(apartment: Apartment) {
+  createApartment(apartment: any) {
     return this.http.post<Apartment>('http://localhost:8080/apartment', apartment)
   }
 

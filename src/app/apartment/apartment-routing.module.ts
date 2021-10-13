@@ -7,13 +7,13 @@ import {ApartmentDetailsComponent} from "./apartment-details/apartment-details.c
 
 const routes: Routes = [
   {
-    path: '', component: ApartmentComponent
+    path: '', component: ApartmentComponent, pathMatch: 'full',
   },
   {
-    path: 'details/:id', component: ApartmentDetailsComponent
+    path: 'details/:id', component: ApartmentDetailsComponent,
   },
   {
-    path: 'create', component: CreateApartmentComponent
+    path: 'create', component: CreateApartmentComponent,
   },
 ];
 

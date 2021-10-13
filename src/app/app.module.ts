@@ -26,12 +26,12 @@ import firebase from "firebase/compat";
 import { EditUserComponent } from './user/edit-user/edit-user.component';
 import Firestore = firebase.firestore.Firestore;
 import {ApartmentModule} from "./apartment/apartment.module";
+import {AppRoutingModule} from "./app-routing.module";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
 
-export const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'login', component: LoginComponent}
-]
 
 @NgModule({
   declarations: [
@@ -52,7 +52,7 @@ export const appRoutes: Routes = [
     NavBarModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes, {useHash: false}),
+    AppRoutingModule,
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
@@ -65,6 +65,9 @@ export const appRoutes: Routes = [
     MatFormFieldModule,
     ApartmentModule,
     // FooterModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
