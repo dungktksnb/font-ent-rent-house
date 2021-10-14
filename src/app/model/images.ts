@@ -4,5 +4,4 @@ export interface Images {
   id?: number
   apartmentImage?: Apartment
   nameUrl?: string
-
 }

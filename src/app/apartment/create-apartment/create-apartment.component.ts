@@ -5,7 +5,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {Apartment} from "../../model/apartment";
-import {ApartmentService} from "../../apartmentService/apartment.service";
+import {ApartmentService} from "../../service/apartment.service";
 
 
 @Component({
@@ -15,12 +15,14 @@ import {ApartmentService} from "../../apartmentService/apartment.service";
 })
 export class CreateApartmentComponent implements OnInit {
   formGroup!: FormGroup;
-  title = 'uploadFile';
   @ViewChild('uploadFile', {static: true}) public avatarDom: ElementRef | undefined;
   selectedImg: any = [];
   arrayPicture: String[] = [];
 
-  constructor(private storage: AngularFireStorage, private http: HttpClient, private router: Router, private apartmentService: ApartmentService) {
+  constructor(private storage: AngularFireStorage,
+              private http: HttpClient,
+              private router: Router,
+              private apartmentService: ApartmentService) {
 
   }
 
@@ -39,18 +41,19 @@ export class CreateApartmentComponent implements OnInit {
       status: new FormControl(true),
       ward: new FormControl(),
       typeApartmentId: new FormControl(),
-      // usersId: new FormControl()           // hỏi toàn
+      usersId: new FormControl()           // hỏi toàn
     })
   }
+
   createApartment() {
     let images = [];
     for (const image of this.arrayPicture) {
-      images.push({nameUrl:image});
+      images.push({nameUrl: image});
     }
-    this.arrayPicture.splice(0,1);
+    this.arrayPicture.splice(0, 1);
     let apartment = {
-      images:images,
-      name:  this.formGroup.get('name')?.value,
+      images: images,
+      name: this.formGroup.get('name')?.value,
       address: this.formGroup.get('address')?.value,
       ward: this.formGroup.get('ward')?.value,
       district: this.formGroup.get('district')?.value,
@@ -69,9 +72,6 @@ export class CreateApartmentComponent implements OnInit {
       }
     }
 
-    console.log("apartment")
-    console.log(apartment)
-    console.log(this.formGroup.value);
     this.apartmentService.createApartment(apartment).subscribe((data) => {
       this.router.navigate(['']);
     })
@@ -92,7 +92,6 @@ export class CreateApartmentComponent implements OnInit {
         this.storage.upload(filePath, file).snapshotChanges().pipe(
           finalize(() => (fileRef.getDownloadURL().subscribe(url => {
             this.arrayPicture.push(url);
-            console.log(url);
           })))
         ).subscribe();
       }

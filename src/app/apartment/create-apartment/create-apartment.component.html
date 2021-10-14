@@ -14,15 +14,12 @@
             <div class="col-6">
               <ul class="p-0 m-0">
                 <li><span>Tên căn hộ:</span><input type="text" class="form-control" formControlName="name"></li>
-                <li><span>Phân loại căn hộ:</span>
-                  <select formControlName="typeApartmentId">
-                    <option value="1">Thường</option>
-                    <option value="2">VIP</option>
-                    <option value="3">Luxury</option>
-                  </select></li>
+                <li><span>Phân loại căn hộ:</span><input type="text" class="form-control" formControlName="typeApartmentId"
+                                                         placeholder="Diện tích : m2">
+                </li>
                 <li><span>View căn hộ:</span><input type="text" class="form-control" formControlName="numberView"
                                                     placeholder="Số lượng mặt tiền"></li>
-                <li><span>Thêm ảnh:</span><input type="file" #uploadFile multiple="multiple" (change)="uploadFileImg()">
+                <li><span>Thêm ảnh:</span><input type="file" #uploadFile  multiple="multiple" (change)="uploadFileImg()">
                 </li>
                 <li>
                   <div *ngFor="let img of arrayPicture">
@@ -35,7 +32,7 @@
             </div>
             <div class="col-6">
               <ul class="p-0 m-0">
-                <li><span>Địa chỉ:</span><input type="text" class="form-control" formControlName="address"></li>
+                <li><span>Ngõ/Ngách:</span><input type="text" class="form-control" formControlName="address"></li>
                 <li><span>Phường/xã:</span><input type="text" class="form-control" formControlName="ward"></li>
                 <li><span>Quận/huyện:</span><input type="text" class="form-control" formControlName="district"></li>
                 <li><span>Tỉnh/thành phố:</span><input type="text" class="form-control" formControlName="city"></li>
@@ -56,7 +53,7 @@
             <p><input type="submit" (click)="createApartment()" value="Đăng nhà"></p>
           </div>
           <div class="col-2">
-            <p><input type="submit" (click)="createApartment()" value="Quay lại"></p>
+            <p><input type="submit" routerLink="" value="Home"></p>
           </div>
           </div>
         </div>

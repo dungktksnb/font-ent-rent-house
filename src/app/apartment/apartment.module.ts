@@ -7,6 +7,8 @@ import {ApartmentComponent} from "./apartment.component";
 import { ApartmentDetailsComponent } from './apartment-details/apartment-details.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {EditApartmentComponent} from "./edit-apartment/edit-apartment.component";
+import { CommentComponent } from './comment/comment.component';
+import {BillComponent} from "./bill/bill.component";
 
 
 @NgModule({
@@ -15,6 +17,7 @@ import {EditApartmentComponent} from "./edit-apartment/edit-apartment.component"
     CreateApartmentComponent,
     ApartmentDetailsComponent,
     EditApartmentComponent,
+    CommentComponent,BillComponent
   ],
   exports: [
     ApartmentComponent,

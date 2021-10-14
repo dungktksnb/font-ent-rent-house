@@ -3,7 +3,9 @@ import {Apartment} from "../../model/apartment";
 import {HttpClient} from "@angular/common/http";
 import {ActivatedRoute} from "@angular/router";
 import {FormControl, FormGroup} from "@angular/forms";
-import {ApartmentService} from "../../apartmentService/apartment.service";
+import {ApartmentService} from "../../service/apartment.service";
+import {BillService} from "../../service/bill.service";
+import {Bill} from "../../model/bill";
 
 @Component({
   selector: 'app-apartment-details',
@@ -13,9 +15,14 @@ import {ApartmentService} from "../../apartmentService/apartment.service";
 export class ApartmentDetailsComponent implements OnInit {
   details!: Apartment;
   id!: number;
+  idOwner!: number;
+  idClient!: number;
+  bill!: Bill;
 
-  constructor(private http: HttpClient, private activatedRoute: ActivatedRoute, private apartmentService: ApartmentService) {
-
+  constructor(private http: HttpClient,
+              private activatedRoute: ActivatedRoute,
+              private apartmentService: ApartmentService,
+              private billService: BillService) {
   }
 
   ngOnInit(): void {
@@ -29,6 +36,14 @@ export class ApartmentDetailsComponent implements OnInit {
     this.apartmentService.findApartmentById(id).subscribe((data) => {
       this.details = data;
     })
+  }
+
+  getBill() {
+    // this.billService.showBill();
+  }
+
+  total(startDay:number, endDay:number, idClient:number){
+    // this.billService
   }
 
 }

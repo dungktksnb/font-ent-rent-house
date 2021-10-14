@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {ActivatedRoute, Route, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
-import {ApartmentService} from "../../apartmentService/apartment.service";
+import {ApartmentService} from "../../service/apartment.service";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {finalize} from "rxjs/operators";
 

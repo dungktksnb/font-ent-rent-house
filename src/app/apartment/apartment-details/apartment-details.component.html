@@ -8,37 +8,30 @@
           <img src="{{img.nameUrl}}" width="350" height="300">
         </div>
         </div>
-        <p><a href="#"></a></p>
 <!--        </div>-->
         <div class="row">
           <div class="col-4">
             <ul class="p-0 m-0">
               <li><span>Tên căn hộ:</span>{{details?.name}}</li>
-              <li><span>Mô tả:</span>{{details?.description}}</li>
-              <li><span>Địa chỉ:</span>{{details?.address}} - {{details?.ward}} - {{details?.district}} - {{details?.city}}</li>
-            </ul>
-          </div>
-          <div class="col-4">
-            <ul class="p-0 m-0">
               <li><span>Phòng ngủ:</span>{{details?.bedroom}}</li>
               <li><span>Phòng tắm:</span><a href="#">{{details?.bathroom}}</a></li>
-              <li><span>Giá tiền (vnđ/ngày):</span><a href="#">{{details?.price}}</a></li>
             </ul>
           </div>
           <div class="col-4">
             <ul class="p-0 m-0">
-              <li><span>Ngày đặt:</span><input type="date"></li>
-              <li><span>Ngày trả:</span><input type="date"></li>
-              <li><span>Tổng tiền (vnđ):</span><a href="#">{{details?.price}}</a></li>
+              <li><span>Địa chỉ:</span>{{details?.address}} - {{details?.ward}} - {{details?.district}} - {{details?.city}}</li>
+              <li><span>Mô tả:</span>{{details?.description}}</li>
+              <li><span>Giá tiền (vnđ/ngày):</span><a href="#">{{details?.price}}</a></li>
             </ul>
           </div>
         </div>
         <div class="row">
           <div class="col-1">
-        <p><input type="submit" style="background-color: red" value="Đặt nhà"></p>
+        <p><input type="submit" style="background-color: red" [routerLink]="['/bill']" value="Đặt nhà">
+        </p>
           </div>
           <div class="col-1">
-            <p><input type="submit" style="background-color: grey" value="Đánh giá"></p>
+            <p><input type="submit" [routerLink]="['/comment']" style="background-color: grey" value="Đánh giá"></p>
           </div>
         </div>
       </div>
